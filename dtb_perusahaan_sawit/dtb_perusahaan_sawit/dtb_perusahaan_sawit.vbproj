@@ -77,10 +77,22 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beranda.Designer.vb">
+      <DependentUpon>Beranda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Beranda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="keuangan.Designer.vb">
       <DependentUpon>keuangan.vb</DependentUpon>
     </Compile>
     <Compile Include="keuangan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pergudangan.Designer.vb">
@@ -132,6 +144,9 @@
   <ItemGroup>
     <EmbeddedResource Include="keuangan.resx">
       <DependentUpon>keuangan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pergudangan.resx">
       <DependentUpon>Pergudangan.vb</DependentUpon>
