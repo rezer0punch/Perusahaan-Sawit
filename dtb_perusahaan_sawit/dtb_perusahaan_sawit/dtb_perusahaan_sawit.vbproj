@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{617063D4-9FAE-4CB4-B94E-2BADFCD479C6}</ProjectGuid>
+    <ProjectGuid>{0585479D-CE13-4EEF-8EF8-B880CCF9BBA3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Perusahaan_Sawit.My.MyApplication</StartupObject>
-    <RootNamespace>Perusahaan_Sawit</RootNamespace>
-    <AssemblyName>Perusahaan_Sawit</AssemblyName>
+    <StartupObject>dtb_perusahaan_sawit.My.MyApplication</StartupObject>
+    <RootNamespace>dtb_perusahaan_sawit</RootNamespace>
+    <AssemblyName>dtb_perusahaan_sawit</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Perusahaan_Sawit.xml</DocumentationFile>
+    <DocumentationFile>dtb_perusahaan_sawit.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Perusahaan_Sawit.xml</DocumentationFile>
+    <DocumentationFile>dtb_perusahaan_sawit.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -49,10 +49,15 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -72,11 +77,23 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainFrom.vb">
+    <Compile Include="keuangan.Designer.vb">
+      <DependentUpon>keuangan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="keuangan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainFrom.Designer.vb">
-      <DependentUpon>MainFrom.vb</DependentUpon>
+    <Compile Include="Pergudangan.Designer.vb">
+      <DependentUpon>Pergudangan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pergudangan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="perusahaan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="perusahaan.Designer.vb">
+      <DependentUpon>perusahaan.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -94,16 +111,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Perusahaan.Designer.vb">
-      <DependentUpon>Perusahaan.vb</DependentUpon>
+    <Compile Include="perusahaan_sawitDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>perusahaan_sawitDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Perusahaan.vb">
+    <Compile Include="relasi_perusahaan.Designer.vb">
+      <DependentUpon>relasi_perusahaan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="relasi_perusahaan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staf_perusahaan.Designer.vb">
+      <DependentUpon>staf_perusahaan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staf_perusahaan.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainFrom.resx">
-      <DependentUpon>MainFrom.vb</DependentUpon>
+    <EmbeddedResource Include="keuangan.resx">
+      <DependentUpon>keuangan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pergudangan.resx">
+      <DependentUpon>Pergudangan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="perusahaan.resx">
+      <DependentUpon>perusahaan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -111,11 +145,15 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perusahaan.resx">
-      <DependentUpon>Perusahaan.vb</DependentUpon>
+    <EmbeddedResource Include="relasi_perusahaan.resx">
+      <DependentUpon>relasi_perusahaan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staf_perusahaan.resx">
+      <DependentUpon>staf_perusahaan.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -124,6 +162,17 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="perusahaan_sawitDataSet.xsc">
+      <DependentUpon>perusahaan_sawitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="perusahaan_sawitDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>perusahaan_sawitDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="perusahaan_sawitDataSet.xss">
+      <DependentUpon>perusahaan_sawitDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
