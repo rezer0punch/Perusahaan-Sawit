@@ -142,6 +142,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Beranda.resx">
+      <DependentUpon>Beranda.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="keuangan.resx">
       <DependentUpon>keuangan.vb</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +192,9 @@
     <None Include="perusahaan_sawitDataSet.xss">
       <DependentUpon>perusahaan_sawitDataSet.xsd</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\babi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
